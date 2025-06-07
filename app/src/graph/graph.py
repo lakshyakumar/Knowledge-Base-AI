@@ -1,6 +1,6 @@
 from langgraph.graph.state import StateGraph, START
 from app.src.common.types import GraphState
-from app.src.graph.nodes import final_node, init_node, scraping_node
+from app.src.graph.nodes import final_node, init_node, scraping_node, advanced_scraping_node
 from langchain_core.messages import AIMessage, HumanMessage
 
 class Graph:
@@ -9,7 +9,7 @@ class Graph:
         self.graph_builder = StateGraph(GraphState)
         
         self.graph_builder.add_node( "init_node", init_node )
-        self.graph_builder.add_node("scraping_node", scraping_node)
+        self.graph_builder.add_node("scraping_node", advanced_scraping_node)
         self.graph_builder.add_node("final_node", final_node)
         
         self.graph_builder.add_edge(START, "init_node")
