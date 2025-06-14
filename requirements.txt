@@ -17,3 +17,4 @@ streamlit
 selenium
 html5lib
 lxml
+crawl4ai

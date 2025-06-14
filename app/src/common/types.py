@@ -9,7 +9,7 @@ from langgraph.graph.message import add_messages
 
 class GraphState(TypedDict):
     query: str
-    url: str | None
+    url: Union[list[str], None] = None
     title: str | None
     summary: str | None
     scraped_text: str | None
@@ -39,5 +39,13 @@ class InitAgentOutput:
     """
     object to be used in the init agent 
     """
-    url: str
+    url: Union[list[str], None] = None
+    comments: Union[list[str], None] = None
+    
+@dataclass
+class SearchAgentOutput:
+    """
+    object to be used in the search Agent 
+    """
+    url: Union[list[str], None] = None
     comments: Union[list[str], None] = None
